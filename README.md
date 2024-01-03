@@ -33,6 +33,8 @@
  ### Redmi K60 / Poco F5 Pro (mondrian)
  **baalam**
 
+ ### Redmi 8(olive)
+ **LOLZ**
  共5个内核构建(主要是针对类原的构建) 
   
  ## 构建周期 
@@ -53,3 +55,6 @@
 
  ## Redmi K60 / Poco F5 Pro (mondrian)
  [Baalam](https://github.com/LowTension/android_kernel_xiaomi_sm8475)
+
+ ## Redmi 8(olive)
+[LOLZ](https://github.com/Jprimero15/lolz_kernel_redmi8)
