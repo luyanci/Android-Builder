@@ -45,6 +45,7 @@
             }
           },
           "enableKernelSU": true,
-          "enableLXC": false
+          "enableLXC": false,
+          "enableNetHunter": false        
     }
 ]
