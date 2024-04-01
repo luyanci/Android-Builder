@@ -9,7 +9,7 @@
  </center> 
   
  ## 介绍 
- 使用github Action构建安卓系统内核 支持kernelSU和LXC docker构建
+ 使用github Action构建安卓系统内核 支持kernelSU/LXC docker/Nethunter构建
  ## 刷入方法 
  1.进入recovery（关机状态下电源+音量加） 
   
