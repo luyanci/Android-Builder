@@ -72,7 +72,7 @@ jobs:
       CCACHE_DIR: "${{ github.workspace }}/out"
     steps:
       # Set swap space
-      - name: 📐 Set swap to 10G
+      - name: 📐 Maximize build space & Set swap to 10G
         uses: easimon/maximize-build-space@master
         with:
           swap-size-mb: 10240
