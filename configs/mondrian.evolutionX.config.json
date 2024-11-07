@@ -1,11 +1,11 @@
 [
     {
         "kernelSource": { 
-            "name": "Pure-phoenix", 
-            "repo": "https://github.com/Pzqqt/android_kernel_xiaomi_sm6150-1", 
-            "branch": "pure-phoenix", 
-            "device": "phoenix", 
-            "defconfig": "phoenix_defconfig" 
+            "name": "k60-evolutionX", 
+            "repo": "https://github.com/Evolution-X-Devices/kernel_xiaomi_sm8475", 
+            "branch": "udc", 
+            "device": "mondrian", 
+            "defconfig": "vendor/mondrian_defconfig" 
           }, 
           "toolchains": [ 
             {  
@@ -35,13 +35,13 @@
           }, 
           "AnyKernel3": { 
             "use": true, 
-            "release": true, 
-            "custom":{
-            "repo": "https://github.com/luyanci/AnyKernel3", 
-            "branch": "master" 
+            "release": true,
+            "custom": {
+              "repo": "https://github.com/luyanci/Ak3",
+              "branch": "k60"
             }
           },
           "enableKernelSU": true, 
-          "enableLXC": false
+          "enableLXC": false        
     }
 ]

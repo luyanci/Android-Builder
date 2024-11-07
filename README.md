@@ -1,12 +1,14 @@
+<div align="center"> 
+  
 # Android-Builder
  Automaticcaly build android kernel by github actions.
- <center> 
-  
+
+
 [原版仓库](https://github.com/DogdayAndroid/Android-Builder/)  [原版readme](https://github.com/luyanci/Android-Builder/blob/main/README_vanlia.md) 
   
  [![Build kernels](https://github.com/luyanci/Android-Builder/actions/workflows/build.yml/badge.svg)](https://github.com/luyanci/Android-Builder/actions/workflows/build.yml)  
   
- </center> 
+</div> 
   
  ## 介绍 
  使用github Action构建安卓系统内核 支持kernelSU和LXC docker构建
@@ -32,6 +34,7 @@
 
  ### Redmi K60 / Poco F5 Pro (mondrian)
  **baalam**
+ **EvolutionX**
 
  ### Redmi 8(olive)
  **LOLZ**
@@ -41,7 +44,10 @@
  ## 构建周期 
  每周日的早11点(UTC)会自动编译一次内核，每个月会清理一次构建历史 
   
- 如果有非周日的releases，那可能是我给仓库更新了点什么并构建测试了(也有可能是ksu有新的稳定releases发布了) 
+ 如果有非周日的releases，那可能是我给仓库更新了点什么并构建测试了
+ ~~(也有可能是ksu有新的稳定releases发布了)~~
+
+ (别想了，ksu已经放弃支持非gki内核了，只能锁死在v0.9.5了)
   
  ## 使用的内核源码仓库链接
  ## Redmi K30 / PocoF2 (phoenix/phoenixin)
@@ -56,6 +62,7 @@
 
  ## Redmi K60 / Poco F5 Pro (mondrian)
  [Baalam](https://github.com/LowTension/android_kernel_xiaomi_sm8475)
+ [EvolutionX](https://github.com/Evolution-X-Devices/kernel_xiaomi_sm8475)
 
  ## Redmi 8(olive)
 [LOLZ](https://github.com/Jprimero15/lolz_kernel_redmi8)
