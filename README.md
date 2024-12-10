@@ -12,6 +12,10 @@
   
  ## 介绍 
  使用github Action构建安卓系统内核 支持kernelSU和LXC docker构建
+
+## KernelSU
+从v20241211.84起，将使用[rissu版kernelsu](https://github.com/rsuntk/KernelSU)的构建补丁，以继续支持non-gki内核构建，请注意之后的构建需要从提供的链接下载管理器
+
  ## 刷入方法 
  1.进入recovery（关机状态下电源+音量加） 
   
