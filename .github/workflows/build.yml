@@ -64,6 +64,9 @@ jobs:
       # Whether to enable KernelSU
       ENABLE_KERNELSU: ${{ matrix.CONFIG.enableKernelSU }}
 
+      # Whether to enable KernelSU ExtPatch
+      ENABLE_KERNELSU_ExtPatch: ${{ matrix.CONFIG.enableKernelSUExtPatch }}
+
       # Whether to enable LXC docker
       ENABLE_LXC: ${{ matrix.CONFIG.enableLXC }}
 
@@ -261,9 +264,14 @@ jobs:
           echo -e "CONFIG_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KPROBE_EVENTS=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          git am -s < ${{ env.WORKSPACE }}/kernelsu/patches/path_umount.patch
+          
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-
+      - name: 😋 Setup KernelSU Ext Patch
+        working-directory: ${{ env.KERNEL_NAME }}
+        if: ${{ env.ENABLE_KERNELSU_ExtPatch == 'true' }}
+        run: |
+          # Add Patch
+          git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/path_umount.patch
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
