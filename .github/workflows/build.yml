@@ -268,10 +268,10 @@ jobs:
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
       - name: 😋 Setup KernelSU Ext Patch
         working-directory: ${{ env.KERNEL_NAME }}
-        if: false
-        #if: ${{ env.ENABLE_KERNELSU_ExtPatch == 'true' && env.ENABLE_KERNELSU == 'true' }}
+        #if: false
+        if: ${{ env.ENABLE_KERNELSU_ExtPatch == 'true' && env.ENABLE_KERNELSU == 'true' }}
         run: |
-          # Add Patch
+          # Add Patch to kernel before 5.9
           git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/path_umount.patch
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
