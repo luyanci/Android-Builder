@@ -274,6 +274,8 @@ jobs:
           # Add Patch to kernel before 5.9
           git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/path_umount.patch
           # git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.patch #not work
+          sed -i '260 r ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.h' ./include/linux/cred.h
+          sed -i 's/atomic_inc_not_zero(&((struct cred \*)cred)->usage)/get_cred_rcu(cred)/g' ./kernel/cred.c
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
