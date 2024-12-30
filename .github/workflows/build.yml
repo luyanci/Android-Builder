@@ -273,7 +273,7 @@ jobs:
         run: |
           # Add Patch to kernel before 5.9
           git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/path_umount.patch
-          git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.patch
+          # git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.patch #not work
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
