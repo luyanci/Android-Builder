@@ -40,8 +40,10 @@
     "AnyKernel3": {
       "use": true,
       "release": true,
-      "repo": "https://github.com/Xiaomi-sdm845-KSU/AnyKernel3",
-      "branch": "master"
+      "custom": {
+        "repo": "https://github.com/Xiaomi-sdm845-KSU/AnyKernel3",
+        "branch": "master"
+      }
     }
   }
 ]
