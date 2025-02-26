@@ -321,7 +321,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-Image
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-Image
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image
           if-no-files-found: ignore
           retention-days: 7
@@ -331,7 +331,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-Image.gz
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-Image.gz
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz
           if-no-files-found: ignore
           retention-days: 7
@@ -341,7 +341,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-Image.gz-dtb
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-Image.gz-dtb
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb
           if-no-files-found: ignore
           retention-days: 7
@@ -351,7 +351,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-dtb
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-dtb
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtb
           if-no-files-found: ignore
           retention-days: 7
@@ -361,7 +361,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-dtbo.img
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-dtbo.img
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img
           if-no-files-found: ignore
           retention-days: 7
@@ -371,7 +371,7 @@ jobs:
         env:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
-          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-Output
+          name: ${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}-Output
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/
           retention-days: 7
 
@@ -380,7 +380,7 @@ jobs:
         env:
           PARAMS: "${{ toJSON(matrix.CONFIG.AnyKernel3) }}"
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}"
         run: |
           if echo -n '${{ env.PARAMS }}' | jq -e 'has("custom")' > /dev/null; then
             CUSTOM_ANYKERNEL3=$(echo -n '${{ env.PARAMS }}' | jq -r ".custom")
@@ -399,7 +399,7 @@ jobs:
 
           if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb" ]; then
             cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb ./AnyKernel3/
-            cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img ./AnyKernel3/
+            # cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img ./AnyKernel3/
           else
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image ./AnyKernel3/
@@ -421,7 +421,7 @@ jobs:
 
       - name: "💾 Upload AnyKernel3 image => (${{ env.BUILD_DATE }})"
         env:
-          ANYKERNEL3_FILE: "AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}"
         uses: actions/upload-artifact@v4
         if: ${{ env.USE_ANYKERNEL3 == 'true' }}
         with:
