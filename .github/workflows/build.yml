@@ -430,7 +430,7 @@ jobs:
 
       - name: 🧧 Create GitHub Release => (${{ env.BUILD_DATE }})
         env:
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.KERNEL_DEVICE }}-${{ env.BUILD_DATE }}"
         continue-on-error: true
         uses: softprops/action-gh-release@v2
         if: ${{ env.USE_ANYKERNEL3 == 'true' && env.CONFIRM_RELEASE == 'true' }}
