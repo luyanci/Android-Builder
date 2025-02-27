@@ -1,0 +1,50 @@
+[
+  {
+    "kernelSource": {
+      "name": "MIUI",
+      "repo": "https://github.com/SlackerState/android_kernel_xiaomi_sm6150",
+      "branch": "phoenix-r-oss",
+      "device": "phoenix_ztc1997",
+      "defconfig": "vendor/phoenix_ztc1997_defconfig"
+    },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableKernelSUExtPatch": true,
+    "enableLXC": false,
+    "toolchains": [
+      {
+        "repo": "https://github.com/luyanci/kernel_bulid",
+        "branch": "main",
+        "name": "tools",
+        "binaryEnv": ["toolclang/clang-r428724/bin","toolgcc/bin"]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "tools/toolclang/clang-r428724/bin/clang",
+      "externalCommand": {
+        "CROSS_COMPILE": "tools/toolgcc/bin/aarch64-linux-android-",
+        "CROSS_COMPILE_ARM32": "tools/toolgcc/arm/bin/arm-linux-androideabi-",
+        "CROSS_COMPILE_COMPAT":"",
+        "CLANG_TRIPLE": "aarch64-linux-gnu-",
+        "AR": "tools/toolclang/clang-r428724/bin/llvm-ar",
+        "HOSTCC":"gcc",
+        "HOSTCXX":"tools/toolclang/clang-r428724/bin/clang++",
+        "NM":"tools/toolclang/clang-r428724/bin/llvm-nm" ,
+        "OBJCOPY":"tools/toolclang/clang-r428724/bin/llvm-objcopy",
+        "OBJDUMP":"tools/toolclang/clang-r428724/bin/llvm-objdump",
+        "STRIP":"tools/toolclang/clang-r428724/bin/llvm-strip",
+        "LD":"tools/toolclang/clang-r428724/bin/ld.lld",
+        "DTC_EXT":"tools/dtc"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "custom":{
+        "repo": "https://github.com/luyanci/AnyKernel3",
+        "branch": "master"
+      }
+    }
+}
+]
