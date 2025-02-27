@@ -8,13 +8,12 @@
             "defconfig": "lolz_olive_defconfig"
           },
           "toolchains": [
-          {
-            "repo": "https://gitlab.com/Jprimero15/lolz_clang.git",
-            "branch": "main",
-            "name": "tools",
+          { 
+            "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r536225.tar.gz",  
+            "name": "clang",  
             "binaryEnv": [
                 "bin"
-            ]
+            ]  
           }
         ],
           "enableCcache": true,
