@@ -19,18 +19,18 @@
           "enableCcache": true,
         "params": {
           "ARCH": "arm64",
-          "CC": "tools/bin/clang",
+          "CC": "clang/bin/clang",
           "externalCommands": {
-          "CROSS_COMPILE": "tools/bin/aarch64-linux-gnu-", 
-          "CROSS_COMPILE_ARM32": "tools/bin/arm-linux-gnueabi-", 
-          "CLANG_TRIPLE": "tools/bin/aarch64-linux-gnu-",
-          "AS": "tools/bin/llvm-as", 
-          "AR": "tools/bin/llvm-ar",  
-          "NM":"tools/bin/llvm-nm",  
-          "OBJCOPY":"tools/bin/llvm-objcopy",  
-          "OBJDUMP":"tools/bin/llvm-objdump",  
-          "STRIP":"tools/bin/llvm-strip",  
-          "LD":"tools/bin/ld.lld"
+          "CROSS_COMPILE": "clang/bin/aarch64-linux-gnu-", 
+          "CROSS_COMPILE_ARM32": "clang/bin/arm-linux-gnueabi-", 
+          "CLANG_TRIPLE": "clang/bin/aarch64-linux-gnu-",
+          "AS": "clang/bin/llvm-as", 
+          "AR": "clang/bin/llvm-ar",  
+          "NM":"clang/bin/llvm-nm",  
+          "OBJCOPY":"clang/bin/llvm-objcopy",  
+          "OBJDUMP":"clang/bin/llvm-objdump",  
+          "STRIP":"clang/bin/llvm-strip",  
+          "LD":"clang/bin/ld.lld"
           }
           },
           "AnyKernel3": {
