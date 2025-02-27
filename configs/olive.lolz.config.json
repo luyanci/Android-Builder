@@ -3,7 +3,7 @@
         "kernelSource": {
             "name": "Redmi8-LOLZ",
             "repo": "https://github.com/Jprimero15/lolz_kernel_redmi8",
-            "branch": "V28",
+            "branch": "V24_test",
             "device": "olive",
             "defconfig": "lolz_olive_defconfig"
           },
