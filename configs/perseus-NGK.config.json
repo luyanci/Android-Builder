@@ -8,6 +8,7 @@
       "defconfig": "nogravity-perseus_defconfig"
     },
     "enableKernelSU": true,
+    "enableCcache": true,
     "enableKernelSUExtPatch": true,
     "enableLXC": false,
     "toolchains": [

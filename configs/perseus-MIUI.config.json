@@ -8,6 +8,7 @@
       "defconfig": "perseus_user_defconfig"
     },
     "enableKernelSU": true,
+    "enableCcache": true,
     "enableKernelSUExtPatch": true,
     "enableLXC": false,
     "toolchains": [

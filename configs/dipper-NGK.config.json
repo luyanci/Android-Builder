@@ -8,6 +8,7 @@
       "defconfig": "nogravity-dipper_defconfig"
     },
     "enableKernelSU": true,
+    "enableCcache": true,
     "enableKernelSUExtPatch": true,
     "enableLXC": false,
     "toolchains": [
