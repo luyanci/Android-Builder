@@ -22,7 +22,7 @@
     "params": {
       "ARCH": "arm64",
       "CC": "tools/toolclang/clang-r428724/bin/clang",
-      "externalCommand": {
+      "externalCommands": {
         "CROSS_COMPILE": "tools/toolgcc/bin/aarch64-linux-android-",
         "CROSS_COMPILE_ARM32": "tools/toolgcc/arm/bin/arm-linux-androideabi-",
         "CROSS_COMPILE_COMPAT":"",
