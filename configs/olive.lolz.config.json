@@ -11,7 +11,7 @@
           {
             "repo": "https://gitlab.com/yaosp/prebuilts_clang_host_linux-x86_clang-r475365b.git",
             "branch": "master",
-            "name": "clang",
+            "name": "tools",
             "binaryEnv": [
                 "bin"
             ]
