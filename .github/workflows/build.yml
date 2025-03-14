@@ -261,6 +261,16 @@ jobs:
 
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
 
+      - name: 😋 Setup KernelSU Ext Patch
+        working-directory: ${{ env.KERNEL_NAME }}
+        #if: false
+        if: ${{ env.ENABLE_KERNELSU == 'true' }}
+        run: |
+          # Add add-auto-backport
+          cp ${{ env.WORKSPACE }}/Kernelsu/Patch/add-auto-backport.patch ./KernelSU
+          cd ./KernelSU
+          patch -p1 --forward < add-auto-backport.patch || true
+
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
