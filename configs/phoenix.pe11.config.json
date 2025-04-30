@@ -2,8 +2,8 @@
     {
         "kernelSource": {
             "name": "PE11",
-            "repo": "https://github.com/PixelExperience-Devices/kernel_xiaomi_phoenix",
-            "branch": "eleven",
+            "repo": "https://github.com/luyanci/kernel_xiaomi_phoenix",
+            "branch": "11-ycrksu",
             "device": "phoenix",
             "defconfig": "vendor/phoenix_defconfig"
           },
@@ -45,7 +45,7 @@
             }
 
           },
-          "enableKernelSU": true,
+          "enableKernelSU": false,
           "enableLXC": false
     }
 ]
