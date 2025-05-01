@@ -271,7 +271,7 @@ jobs:
       - name: 😋 Setup KernelSU Ext Patch
         working-directory: ${{ env.KERNEL_NAME }}
         #if: false
-        if: ${{ env.ENABLE_KERNELSU == 'true' &&       ENABLE_KERNELSU_ExtPatch == 'true'}}
+        if: ${{ env.ENABLE_KERNELSU == 'true' &&       env.ENABLE_KERNELSU_ExtPatch == 'true'}}
         run: |
           wget -Opatcher https://github.com/luyanci/Android-kernel-utils/releases/download/v0.1/patcher-2204
           chmod +x patcher
