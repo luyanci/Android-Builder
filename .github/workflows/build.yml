@@ -271,7 +271,9 @@ jobs:
         #if: false
         if: ${{ env.ENABLE_KERNELSU == 'true' &&       ENABLE_KERNELSU_ExtPatch == 'true'}}
         run: |
-          wget 
+          wget -Opatcher https://github.com/luyanci/Android-kernel-utils/releases/download/v0.1/patcher-2204
+          chmod +x patcher
+          ./patcher
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
