@@ -268,17 +268,10 @@ jobs:
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
       - name: 😋 Setup KernelSU Ext Patch
         working-directory: ${{ env.KERNEL_NAME }}
-        if: false
-        #if: ${{ env.ENABLE_KERNELSU == 'true' }}
+        #if: false
+        if: ${{ env.ENABLE_KERNELSU == 'true' &&       ENABLE_KERNELSU_ExtPatch == 'true'}}
         run: |
-          # Add add-auto-backport
-          cp ${{ env.WORKSPACE }}/Kernelsu/Patch/add-auto-backport.patch ./KernelSU
-          cd ./KernelSU
-          patch -p1 --forward < add-auto-backport.patch || true
-          # git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/path_umount.patch
-          # git am -s < ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.patch #not work
-          # sed -i '260 r ${{ env.WORKSPACE }}/Kernelsu/Patch/get_cred_rcu.h' ./include/linux/cred.h
-          # sed -i 's/atomic_inc_not_zero(&((struct cred \*)cred)->usage)/get_cred_rcu(cred)/g' ./kernel/cred.c
+          wget 
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
