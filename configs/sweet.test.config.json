@@ -9,8 +9,8 @@
           }, 
           "toolchains": [ 
             {
-               "repo": "https://github.com/Xiaomi-sdm845-KSU/android-kernel-tools",
-               "branch": "clang",
+               "repo": "https://github.com/kdrag0n/proton-clang",
+               "branch": "master",
                "name": "clang13",
                "binaryEnv": ["./bin"]
             }
