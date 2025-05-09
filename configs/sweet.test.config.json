@@ -11,7 +11,7 @@
             {
                "repo": "https://github.com/kdrag0n/proton-clang",
                "branch": "master",
-               "name": "clang13",
+               "name": "clang",
                "binaryEnv": ["./bin"]
             }
           ], 
