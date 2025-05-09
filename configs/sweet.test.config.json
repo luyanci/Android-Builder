@@ -2,7 +2,7 @@
     {
         "kernelSource": { 
             "name": "buildtest", 
-            "repo": "https://github.com/TheStaticDesign/android_kernel_xiaomi_sweet", 
+            "repo": "https://github.com/luyanci/android_kernel_xiaomi_sweet", 
             "branch": "12", 
             "device": "sweet", 
             "defconfig": "vendor/sweet_defconfig" 
