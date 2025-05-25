@@ -2,10 +2,10 @@
     {
         "kernelSource": { 
             "name": "buildtest", 
-            "repo": "https://github.com/luyanci/android_kernel_xiaomi_sweet", 
-            "branch": "12", 
-            "device": "sweet", 
-            "defconfig": "vendor/sweet_defconfig" 
+            "repo": "https://github.com/Akitlove/Xiaomi_Kernel_OpenSource_picasso", 
+            "branch": "android-4.19-miui", 
+            "device": "picasso", 
+            "defconfig": "vendor/picasso_user_defconfig" 
           }, 
           "toolchains": [ 
             {
