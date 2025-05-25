@@ -275,12 +275,17 @@ jobs:
           wget -Opatcher https://github.com/luyanci/Android-kernel-utils/releases/download/v0.1/patcher-2204
           chmod +x patcher
           ./patcher
-      - name: 😋 Setup KernelSU Ext Patch
+      - name: 😋 Setup kpm Patch
         working-directory: ${{ env.KERNEL_NAME }}
         #if: false
         if: ${{ env.ENABLE_KERNELSU == 'true' && env.ENABLE_KERNELSU_ExtPatch == 'true'}}
         run: |
-          wget -Oaddkpm.patch 
+          wget -Oaddkpm.patch https://github.com/luyanci/android_kernel_xiaomi_sm6150_miui/commit/c8461e50a646fc4a6e5822b6598988815b2d5e42.patch
+          wget -Ofixpatch.patch https://github.com/luyanci/android_kernel_xiaomi_sm6150_miui/commit/b9647fa667c947e03f74115e59aeb6f0b9469a3d.patch
+          patch -p1 < addkpm.patch
+          patch -p1 < fixpatch.patch
+          chmod +x patch_kpm.sh
+          ./patch_kpm.sh --download
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
