@@ -282,7 +282,7 @@ jobs:
         run: |
           wget -Oaddkpm.patch https://github.com/luyanci/android_kernel_xiaomi_sm6150_miui/commit/c8461e50a646fc4a6e5822b6598988815b2d5e42.patch
           wget -Ofixpatch.patch https://github.com/luyanci/android_kernel_xiaomi_sm6150_miui/commit/b9647fa667c947e03f74115e59aeb6f0b9469a3d.patch
-          patch -p1 < addkpm.patch
+          patch -p1 < addkpm.patch || true
           patch -p1 < fixpatch.patch
           chmod +x patch_kpm.sh
           ./patch_kpm.sh --download
