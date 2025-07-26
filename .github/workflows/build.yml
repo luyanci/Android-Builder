@@ -97,7 +97,6 @@ jobs:
       - name: ⭐ Install prerequisites
 
         run: |
-          sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" > /etc/apt/sources.list.d/ubuntu-focal-sources.list
           sudo apt-get update
           sudo apt-get install -y curl git ftp lftp wget libarchive-tools ccache python3
           sudo apt-get install -y pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler 
