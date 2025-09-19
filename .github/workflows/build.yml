@@ -322,6 +322,8 @@ jobs:
           fi
 
       - name: "😋 Setup BaseBand-Guard"
+        env:
+          ARCH: ${{ steps.generate-args.outputs.ARCH }}
         working-directory: ${{ env.KERNEL_NAME }}
         run: |
           wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
