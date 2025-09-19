@@ -324,7 +324,7 @@ jobs:
       - name: "😋 Setup BaseBand-Guard"
         working-directory: ${{ env.KERNEL_NAME }}
         run: |
-          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/nmain/setup.sh | bash
+          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
           echo -e "CONFIG_SECURITY_BASEBAND_GUARD=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
 
       - name: 👍 Start building the kernel
