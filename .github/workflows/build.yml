@@ -261,13 +261,14 @@ jobs:
           # Apply new KernelSU patches
           curl -LSs "https://raw.githubusercontent.com/luyanci/KernelSU/main/kernel/setup.sh" | bash -s main
 
-          echo -e "CONFIG_KPROBES=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          echo -e "CONFIG_HAVE_KPROBES=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          echo -e "CONFIG_KPROBE_EVENTS=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
+          #echo -e "CONFIG_KPROBES=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
+          #echo -e "CONFIG_HAVE_KPROBES=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
+          #echo -e "CONFIG_KPROBE_EVENTS=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KSU=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KSU_MANUAL_HOOK=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
+
       - name: 😋 Setup KernelSU Ext Patch
         working-directory: ${{ env.KERNEL_NAME }}
         #if: false
@@ -276,6 +277,7 @@ jobs:
           wget -Opatcher https://github.com/luyanci/Android-kernel-utils/releases/download/v0.1/patcher-2204
           chmod +x patcher
           ./patcher
+
       - name: 😋 Setup LXC docker
         working-directory: ${{ env.KERNEL_NAME }}
         env:
@@ -318,6 +320,12 @@ jobs:
             git am -s < ${{ env.WORKSPACE }}/LXC/Patches/xt_qtaguid.patch
             echo "🎖️ Apply xt_qtaguid.patch"
           fi
+
+      - name: "😋 Setup BaseBand-Guard"
+        working-directory: ${{ env.KERNEL_NAME }}
+        run: |
+          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/nmain/setup.sh | bash
+          echo -e "CONFIG_SECURITY_BASEBAND_GUARD=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
 
       - name: 👍 Start building the kernel
         working-directory: ${{ env.KERNEL_NAME }}
