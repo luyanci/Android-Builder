@@ -326,7 +326,7 @@ jobs:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         working-directory: ${{ env.KERNEL_NAME }}
         run: |
-          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash -s main
+          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash -s dev
           #echo -e "CONFIG_BBG=n" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
 
       - name: 👍 Start building the kernel
