@@ -2,10 +2,10 @@
     {
         "kernelSource": { 
             "name": "buildtest", 
-            "repo": "https://github.com/Akitlove/Xiaomi_Kernel_OpenSource_picasso", 
-            "branch": "android-4.19-miui", 
-            "device": "picasso", 
-            "defconfig": "vendor/picasso_user_defconfig" 
+            "repo": "https://github.com/oppo-source/android_kernel_oppo_sm7325", 
+            "branch": "oppo/sm7325_v_15.0.0_reno10", 
+            "device": "phw110", 
+            "defconfig": "gki_defconfig" 
           }, 
           "toolchains": [ 
             {
