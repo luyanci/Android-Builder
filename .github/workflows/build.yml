@@ -261,10 +261,8 @@ jobs:
           echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KPROBE_EVENTS=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KSU=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          echo -e "CONFIG_KPM=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
+          # echo -e "CONFIG_KPM=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           echo -e "CONFIG_KSU_MANUAL_HOOK=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          echo -e "CONFIG_KALLSYMS=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
-          echo -e "CONFIG_KALLSYMS_ALL=y" >> arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
           
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
       - name: 😋 Setup KernelSU Ext Patch
@@ -277,7 +275,7 @@ jobs:
           ./patcher
       - name: 😋 Setup kpm Patch
         working-directory: ${{ env.KERNEL_NAME }}
-        #if: false
+        if: false
         #if: ${{ env.ENABLE_KERNELSU == 'true' && env.ENABLE_KERNELSU_ExtPatch == 'true'}}
         run: |
           wget -Oaddkpm.patch https://github.com/luyanci/android_kernel_xiaomi_sm6150_miui/commit/c8461e50a646fc4a6e5822b6598988815b2d5e42.patch
